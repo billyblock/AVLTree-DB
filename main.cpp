@@ -18,10 +18,10 @@ StudentDataBase *SDB = new StudentDataBase();
 
 int main()
 {
+    printOutput();
     // Loops infinitely until the user exits
     while (true)
     {
-        printOutput();
         parseInput();
         cout << endl;
     }
@@ -81,7 +81,7 @@ void lookUp(string name)
     }
     else
     {
-        cout << name << " has grade: " << grade;
+        cout << name << " has grade: " << grade << endl;
     }
 }
 
@@ -153,6 +153,10 @@ void parseInput()
         cin >> grade;
         addStudent(name, grade);
     }
+    else if (command == "HELP" || command == "help")
+    {
+        printOutput();
+    }
     else
     {
         cout << "error: term " << command << " unknown. Please try again." << endl;
@@ -167,7 +171,7 @@ void printOutput()
     cout << "PRINT" << endl;
     cout << "RPRINT" << endl;
     cout << "REMOVE (last name, first name)" << endl;
-    cout << "LOOK UP (last name, first name)" << endl;
+    cout << "LOOKUP (last name, first name)" << endl;
     cout << "EXIT" << endl
          << endl;
 }
